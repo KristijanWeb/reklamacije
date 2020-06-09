@@ -1,0 +1,84 @@
+
+<% if(username == 'Hobi Centar Alati'){ %>
+    <div class="pt-3 text-center">
+        <h2>Pregled Servisa</h2>
+    </div>
+
+    <div class="pt-5" style="padding-left: 100px; padding-right: 100px;">
+        <table id="table_id" class="display">
+            <thead>
+                <tr>
+                    <th>Naziv uređaja</th>
+                    <th>Marka uređaja</th>
+                    <th>Greška</th>
+                    <th>Garancija i račun</th>
+                    <th>Tko je dostavio</th>
+                    <th>Broj</th>
+                    <th>Vrijeme</th>
+                    <th>PDF</th>
+                    <th>Rijeseno</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% allreklamacije.forEach(ress => { %>
+                    <tr>
+                        <td><%= ress.nazivuredaja %></td>
+                        <td><%= ress.markauredaja %></td>
+                        <td><%= ress.greska %></td>
+                        <td><%= ress.garancijaracun %></td>
+                        <td><%= ress.donjeo %></td>
+                        <td><%= ress.broj %></td>
+                        <td><%= ress.vrijeme %></td>
+                        <td><a href="/users/pdf/id=<%= ress.id %>">Preuzmi</a></td>
+                        <td><a style="background-color: rgb(104, 165, 235); color: #fff; text-decoration: none; padding: 5px; border-radius: 7px;" 
+                            href="/users/rijeseno/id=<%= ress.id %>">Rijeseno</a></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+<% } %>
+
+<hr>
+
+<div style="padding-left: 100px; padding-right: 100px; padding-top: 50px;">
+    <div class="text-center">
+        <h2>Servisi koje trebamo što prije riješiti!</h2>
+        <p>Svi uređaji koji nisu kod nas 30 dana pokazat ce nam se u tablici</p>
+    </div>
+
+    <div style="padding-left: 100px; padding-right: 100px; padding-top: 50px;">
+        <table id="two_table" class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Naziv uređaja</th>
+                    <th>Marka uređaja</th>
+                    <th>Greška</th>
+                    <th>Garancija i račun</th>
+                    <th>Tko je dostavio</th>
+                    <th>Broj</th>
+                    <th>Vrijeme</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let i = 0; i < oo.length; i++) { %>
+                    <% const element = oo[i]; %>
+                        <% if(element > 30){ %>
+                            <tr>
+                                <td><%= allreklamacije[i].nazivuredaja %></td>
+                                <td><%= allreklamacije[i].markauredaja %></td>
+                                <td><%= allreklamacije[i].greska %></td>
+                                <td><%= allreklamacije[i].garancijaracun %></td>
+                                <td><%= allreklamacije[i].donjeo %></td>
+                                <td><%= allreklamacije[i].broj %></td>
+                                <td><%= allreklamacije[i].vrijeme %></td>
+                                <td><a style="background-color: rgb(104, 165, 235); color: #fff; text-decoration: none; padding: 5px; border-radius: 7px;" 
+                                    href="/users/rijeseno/id=<%= allreklamacije[i].id %>">Rijeseno</a></td>
+                            </tr>
+                        <% } %>
+                <% } %>
+            </tbody>
+          </table>
+    </div>
+</div>

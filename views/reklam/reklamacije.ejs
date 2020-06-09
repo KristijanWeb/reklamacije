@@ -1,0 +1,34 @@
+
+<div class="container reklamacija-form">
+    <div class="text-center">
+        <h2>Reklamacija</h2>
+    </div>
+    <form action="/reklam/reklam-create" method="POST">
+        <div class="form-group">
+            <label>Naziv uređaja: *</label>
+            <input type="text" name="nazivuredaja" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Marka uređaja: *</label>
+            <input type="text" name="markauredaja" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Kvar: *</label>
+            <input name="greska" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Tko je dostavio: *</label>
+            <input name="donjeo" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Broj: *</label>
+            <input name="broj" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Garancija i Račun: *</label>
+            <input name="garancijaracun" class="form-control" required>
+        </div>
+
+        <input type="submit" value="Spremi" class="btn btn-primary">
+    </form>
+</div>

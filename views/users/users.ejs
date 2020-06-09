@@ -1,0 +1,37 @@
+
+<div class="container">
+    <div class="row" id="rowreg">
+        <div class="col">
+            <div class="login-form">
+                <div class="text-center">
+                    <h2>Prijavi se</h2>
+                </div>
+                <div>
+                    <% if(logindopuna.length){ %>
+                        <span class="btn btn-info btn-sm p-2"><%= logindopuna %></span>
+                    <% } %>
+
+                    <% if(ponovologin.length){ %>
+                        <span class="btn btn-danger btn-sm p-2"><%= ponovologin %></span>
+                    <% } %>
+
+                    <% if(nepostoji.length){ %>
+                        <span class="btn btn-info btn-sm p-2"><%= nepostoji %></span>
+                    <% } %>
+                </div>
+                <form action="users/create-login" method="POST">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" name="username_login" class="form-control" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" name="password_login" class="form-control" placeholder="Password">
+                    </div>
+            
+                    <input type="submit" value="Login" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
